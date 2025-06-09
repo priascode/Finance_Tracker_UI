@@ -1,0 +1,26 @@
+/* src/index.css */
+body {
+  background-color: #f0f8ff;
+  color: #002b5c;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.sidebar {
+  background-color: #002b5c;
+  color: white;
+  min-height: 100vh;
+}
+
+.sidebar a {
+  color: white;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.sidebar-icon {
+  margin-right: 8px;
+}

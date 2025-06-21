@@ -1,10 +1,10 @@
 // components/FriendFilter.js
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 const transactionTypes = ['You have to Pay', 'You Paid', 'You have to receive', 'You received'];
 
-function FriendFilter({ filters, setFilters, handleTypeChange }) {
+function FriendFilter({ filters, setFilters, handleTypeChange, onClose }) {
   return (
     <div
       style={{
@@ -19,14 +19,21 @@ function FriendFilter({ filters, setFilters, handleTypeChange }) {
         zIndex: 10,
       }}
     >
-      <h6>Filter</h6>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h6 className="mb-0">Filter</h6>
+        <Button variant="light" size="sm" onClick={onClose}>
+          ✖
+        </Button>
+      </div>
 
       <Form.Group className="mb-3">
         <Form.Label>From Date</Form.Label>
         <Form.Control
           type="date"
           value={filters.fromDate}
-          onChange={(e) => setFilters(prev => ({ ...prev, fromDate: e.target.value }))}
+          onChange={(e) =>
+            setFilters((prev) => ({ ...prev, fromDate: e.target.value }))
+          }
         />
       </Form.Group>
 
@@ -35,11 +42,13 @@ function FriendFilter({ filters, setFilters, handleTypeChange }) {
         <Form.Control
           type="date"
           value={filters.toDate}
-          onChange={(e) => setFilters(prev => ({ ...prev, toDate: e.target.value }))}
+          onChange={(e) =>
+            setFilters((prev) => ({ ...prev, toDate: e.target.value }))
+          }
         />
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group className="mb-3">
         <Form.Label>Transaction Type</Form.Label>
         {transactionTypes.map((type) => (
           <Form.Check
@@ -51,6 +60,12 @@ function FriendFilter({ filters, setFilters, handleTypeChange }) {
           />
         ))}
       </Form.Group>
+
+      <div className="d-flex justify-content-end">
+        <Button variant="primary" onClick={onClose}>
+          Apply
+        </Button>
+      </div>
     </div>
   );
 }

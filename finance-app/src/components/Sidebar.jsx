@@ -7,7 +7,7 @@ function Sidebar({ onLinkClick }) {
   const location = useLocation();
 
   return (
-    <Nav className="flex-column sidebar p-3" variant="pills">
+    <Nav className="flex-column sidebar p-2" variant="pills">
       <Nav.Link as={Link} to="/" active={location.pathname === '/'} onClick={onLinkClick}>
         <FaComments className="sidebar-icon" /> Chat
       </Nav.Link>
